@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenAI Experiment Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/glass.css">
+<link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+<div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+<header class="top glass">
+  <div class="brand">GenAI Lab</div>
+  <span class="spacer"></span>
+  <div class="theme-switch" role="group" aria-label="Theme" style="display:flex;gap:6px;flex-wrap:wrap">
+    <button class="chip" data-theme-pick="glass">Glass</button>
+    <button class="chip" data-theme-pick="ink">Ink</button>
+    <button class="chip" data-theme-pick="paper">Paper</button>
+    <button class="chip" data-theme-pick="dusk">Dusk</button>
+  </div>
+  <a class="chip" href="#/">Catalogue</a>
+  <a class="chip" href="#/exp/1">Start at Exp 1</a>
+</header>
+<main id="view"></main>
+<div id="toast" class="toast glass"></div>
+<script src="js/core.js"></script>
+<script src="js/text.js"></script>
+<script src="js/data.js"></script>
+<script src="js/models.js"></script>
+<script src="js/creative.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Three alternative UIs. Each uses only two colours plus glass layering.
+   Selected with <html data-theme="ink|paper|dusk">; default is glass.css.
+   ========================================================================== */
+
+/* ---------- 1. INK: near-black + acid lime ---------- */
+html[data-theme="ink"]{
+  --bg1:#0b0b0c; --bg2:#0b0b0c; --text:#f5f5f2; --muted:#7d7d78;
+  --glass:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
+  --glass-border:rgba(255,255,255,.08);
+  --accent:#d7ff3f; --accent2:#d7ff3f; --accent3:#d7ff3f;
+  --on-accent:#0b0b0c; --field:rgba(255,255,255,.04); --chip:rgba(255,255,255,.03);
+  --line:rgba(255,255,255,.08); --kpi:rgba(255,255,255,.03);
+  --badge-a:rgba(215,255,63,.12); --badge-a-fg:#d7ff3f;
+  --badge-b:rgba(255,255,255,.07); --badge-b-fg:#f5f5f2;
+  --hover-line:rgba(215,255,63,.5); --hl:rgba(215,255,63,.25);
+  --radius:16px; --shadow:inset 0 1px 0 rgba(255,255,255,.06),0 40px 80px -40px rgba(0,0,0,.9);
+}
+html[data-theme="ink"] body{
+  background-color:#0b0b0c;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:56px 56px;
+}
+html[data-theme="ink"] .orb{display:none}
+html[data-theme="ink"] .glass{
+  position:relative; backdrop-filter:blur(26px) saturate(115%); -webkit-backdrop-filter:blur(26px) saturate(115%);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 40px 80px -40px rgba(0,0,0,.9);
+}
+/* inner plate: a second glass layer sitting inside each panel */
+html[data-theme="ink"] .glass::before{
+  content:""; position:absolute; inset:6px; border-radius:calc(var(--radius) - 6px);
+  border:1px solid rgba(255,255,255,.04); pointer-events:none;
+}
+html[data-theme="ink"] .brand{color:var(--accent);background:none;-webkit-text-fill-color:var(--accent);letter-spacing:-.02em}
+html[data-theme="ink"] .hero h1{letter-spacing:-.03em;font-weight:600}
+html[data-theme="ink"] .card:hover{box-shadow:0 0 0 1px var(--hover-line),0 30px 60px -30px rgba(215,255,63,.25)}
+html[data-theme="ink"] .btn{box-shadow:none}
+html[data-theme="ink"] .btn:hover{box-shadow:0 0 0 4px rgba(215,255,63,.15)}
+html[data-theme="ink"] .btn.ghost{background:transparent}
+html[data-theme="ink"] .card .open,
+html[data-theme="ink"] .about summary{color:var(--accent)}
+html[data-theme="ink"] .card .num{color:var(--accent);opacity:.12}
+html[data-theme="ink"] pre.code{background:#050505}
+
+/* ---------- 2. PAPER: warm ivory + deep indigo, light frosted glass ---------- */
+html[data-theme="paper"]{
+  --bg1:#f3efe6; --bg2:#f3efe6; --text:#1c1a4a; --muted:#6b6890;
+  --glass:rgba(255,255,255,.55); --glass-border:rgba(28,26,74,.09);
+  --accent:#2b2a7a; --accent2:#2b2a7a; --accent3:#2b2a7a;
+  --on-accent:#f3efe6; --field:rgba(255,255,255,.75); --chip:rgba(255,255,255,.5);
+  --line:rgba(28,26,74,.12); --kpi:rgba(255,255,255,.55);
+  --badge-a:rgba(43,42,122,.1); --badge-a-fg:#2b2a7a;
+  --badge-b:rgba(28,26,74,.14); --badge-b-fg:#1c1a4a;
+  --hover-line:rgba(43,42,122,.4); --hl:rgba(43,42,122,.16);
+  --radius:22px; --shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(28,26,74,.05),0 24px 48px -24px rgba(28,26,74,.28);
+}
+html[data-theme="paper"] body{background-color:#f3efe6;background-image:radial-gradient(rgba(28,26,74,.06) 1px,transparent 1px);background-size:22px 22px}
+html[data-theme="paper"] .orb.a{background:#2b2a7a;opacity:.10;width:620px;height:620px}
+html[data-theme="paper"] .orb.b{background:#c9c4ef;opacity:.35}
+html[data-theme="paper"] .orb.c{background:#ffffff;opacity:.5}
+html[data-theme="paper"] .glass{
+  position:relative; backdrop-filter:blur(20px) saturate(120%); -webkit-backdrop-filter:blur(20px) saturate(120%);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(28,26,74,.05),0 24px 48px -24px rgba(28,26,74,.28);
+}
+/* stacked sheet beneath each non-card panel: layered paper look */
+html[data-theme="paper"] .glass:not(.card):not(.top)::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:-10px; height:100%; z-index:-1;
+  border-radius:inherit; background:rgba(43,42,122,.07); border:1px solid rgba(28,26,74,.06);
+}
+html[data-theme="paper"] .brand{color:var(--accent);background:none;-webkit-text-fill-color:var(--accent);font-weight:700;letter-spacing:-.02em}
+html[data-theme="paper"] .hero h1{letter-spacing:-.03em;font-weight:600;color:var(--accent)}
+html[data-theme="paper"] .card{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 10px 26px -18px rgba(28,26,74,.35)}
+html[data-theme="paper"] .card:hover{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 22px 40px -20px rgba(28,26,74,.4)}
+html[data-theme="paper"] .btn{box-shadow:0 8px 20px -10px rgba(43,42,122,.6)}
+html[data-theme="paper"] .btn.ghost{background:rgba(255,255,255,.6);color:var(--text);box-shadow:none}
+html[data-theme="paper"] .card .num{color:var(--accent);opacity:.1}
+html[data-theme="paper"] .toast{color:var(--on-accent);background:var(--accent)}
+html[data-theme="paper"] pre.code{background:#1c1a4a;color:#f3efe6}
+html[data-theme="paper"] .msg{color:var(--accent)}
+
+/* ---------- 3. DUSK: deep navy + coral, glass with coral edge light ---------- */
+html[data-theme="dusk"]{
+  --bg1:#0c1224; --bg2:#0c1224; --text:#f3efe9; --muted:#8e97b5;
+  --glass:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+  --glass-border:rgba(255,122,89,.16);
+  --accent:#ff7a59; --accent2:#ff7a59; --accent3:#ff7a59;
+  --on-accent:#140a08; --field:rgba(255,255,255,.05); --chip:rgba(255,255,255,.04);
+  --line:rgba(255,255,255,.08); --kpi:rgba(255,255,255,.04);
+  --badge-a:rgba(255,122,89,.16); --badge-a-fg:#ff9a7e;
+  --badge-b:rgba(255,255,255,.08); --badge-b-fg:#f3efe9;
+  --hover-line:rgba(255,122,89,.55); --hl:rgba(255,122,89,.28);
+  --radius:20px; --shadow:inset 0 1px 0 rgba(255,122,89,.35),0 30px 60px -30px rgba(0,0,0,.6);
+}
+html[data-theme="dusk"] body{background-color:#0c1224}
+html[data-theme="dusk"] .orb.a{background:#ff7a59;opacity:.22}
+html[data-theme="dusk"] .orb.b{background:#1e2a52;opacity:.9}
+html[data-theme="dusk"] .orb.c{background:#ff7a59;opacity:.10}
+html[data-theme="dusk"] .glass{
+  position:relative; backdrop-filter:blur(22px) saturate(130%); -webkit-backdrop-filter:blur(22px) saturate(130%);
+  box-shadow:inset 0 1px 0 rgba(255,122,89,.35),0 30px 60px -30px rgba(0,0,0,.6);
+}
+/* second glass plate offset inside each panel, with a coral rim */
+html[data-theme="dusk"] .glass::before{
+  content:""; position:absolute; inset:8px; border-radius:calc(var(--radius) - 8px);
+  border:1px solid rgba(255,122,89,.07); pointer-events:none;
+}
+html[data-theme="dusk"] .brand{color:var(--accent);background:none;-webkit-text-fill-color:var(--accent);font-weight:700}
+html[data-theme="dusk"] .hero h1{font-weight:700;letter-spacing:-.02em}
+html[data-theme="dusk"] .btn{box-shadow:0 10px 24px -10px rgba(255,122,89,.7)}
+html[data-theme="dusk"] .btn.ghost{box-shadow:none}
+html[data-theme="dusk"] .card .open,
+html[data-theme="dusk"] .about summary{color:var(--accent)}
+html[data-theme="dusk"] .card .num{color:var(--accent);opacity:.12}
+html[data-theme="dusk"] .card:hover{box-shadow:0 0 0 1px var(--hover-line),0 30px 60px -30px rgba(255,122,89,.35)}
+html[data-theme="dusk"] pre.code{background:#080d1c}
+
+/* ---- palette fixes: keep category badges and plot canvases inside each two-colour palette ---- */
+html[data-theme="ink"] .badge.cat{background:rgba(255,255,255,.06);color:var(--text)}
+html[data-theme="ink"] canvas{background:#050505}
+html[data-theme="dusk"] .badge.cat{background:rgba(255,255,255,.07);color:var(--text)}
+html[data-theme="dusk"] canvas{background:#080d1c}
+html[data-theme="paper"] .badge.cat{background:rgba(43,42,122,.12);color:var(--accent)}
+html[data-theme="paper"] canvas{background:#1c1a4a}
+html[data-theme="paper"] header.top::after{display:none}
+/* ghost buttons on dark themes need light text (the default button text is the dark on-accent colour) */
+html[data-theme="ink"] .btn.ghost,
+html[data-theme="dusk"] .btn.ghost{color:var(--text)}

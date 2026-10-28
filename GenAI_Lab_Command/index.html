@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terminal · GenAI Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="shell">
+  <header class="bar"><span class="g">genai</span><span class="m">@lab</span> <span class="m">~</span> <span class="m" id="ctx">overview</span><span class="spacer"></span><span class="m">Ctrl+K palette &middot; type <b>help</b></span></header>
+  <main id="log" class="log" aria-live="polite"></main>
+  <form id="form" class="prompt" autocomplete="off">
+    <span class="g">&gt;</span><input id="cmd" type="text" placeholder="ls, open 5, next, search dataset, help" spellcheck="false" autofocus>
+  </form>
+</div>
+<div id="pal" class="pal hidden" role="dialog" aria-label="Command palette">
+  <div class="pal-box">
+    <input id="palq" type="text" placeholder="Jump to experiment..." autocomplete="off">
+    <ul id="pallist"></ul>
+    <div class="pal-foot">&uarr;&darr; move &middot; Enter open &middot; Esc close</div>
+  </div>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="js/helpers.js"></script>
+<script src="js/text.js"></script>
+<script src="js/data.js"></script>
+<script src="js/models.js"></script>
+<script src="js/creative.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deck · GenAI Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">GenAI<em>Deck</em></div>
+  <div class="count" id="count">10 experiments</div>
+</header>
+
+<section id="home" class="home">
+  <div class="home-intro">
+    <h1>Ten experiments, one deck.</h1>
+    <p>Swipe or use the arrow keys to browse. Open a card to run its tool.</p>
+    <div class="nav-arrows">
+      <button class="round" id="prev-card" aria-label="Previous">&larr;</button>
+      <button class="round" id="next-card" aria-label="Next">&rarr;</button>
+    </div>
+  </div>
+  <div class="track" id="track"></div>
+</section>
+
+<section id="stage" class="stage hidden">
+  <div class="stage-top" id="stage-top"></div>
+  <div class="stage-body" id="stage-body"></div>
+  <div class="stage-foot">
+    <button class="round" id="s-prev" aria-label="Previous experiment">&larr;</button>
+    <div class="dots" id="dots"></div>
+    <button class="round" id="s-next" aria-label="Next experiment">&rarr;</button>
+  </div>
+</section>
+
+<div id="toast" class="toast hidden"></div>
+<script src="js/helpers.js"></script>
+<script src="js/text.js"></script>
+<script src="js/data.js"></script>
+<script src="js/models.js"></script>
+<script src="js/creative.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
